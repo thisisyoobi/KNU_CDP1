@@ -7,6 +7,11 @@ socket.addEventListener("open", () => {
 socket.addEventListener("message", (message) => {
     console.log("New message: ", message.data);
 });
+// function 표현 가능
+// function socketMessage(message) {
+//     console.log("New message: ", message.data);
+// }
+// socket.addEventListener("message", socketMessage);
 
 socket.addEventListener("close", () => {
     console.log("Disconnected to Server ❌");
