@@ -13,9 +13,9 @@ socket.addEventListener("open", () => {
 });
 
 socket.addEventListener("message", (message) => {
-    const li = document.createElement("li");
-    li.innerText = message.data;
-    messageList.append(li);
+    // const li = document.createElement("li");
+    // li.innerText = message.data;
+    // messageList.append(li);
 });
 // function 표현 가능
 // function socketMessage(message) {
@@ -27,14 +27,15 @@ socket.addEventListener("close", () => {
     console.log("Disconnected to Server ❌");
 })
 
-// setTimeout(() => {
-//     socket.send("hello from the browser!!");
-// }, 10000);
-
 function handleSubmit(event) {
     event.preventDefault();
     const input = messageForm.querySelector("input");
     socket.send(makeMessage("new_message", input.value));
+
+    const li = document.createElement("li");
+    li.innerText = `You: ${input.value}`;
+    messageList.append(li);
+
     input.value = "";
 }
 
