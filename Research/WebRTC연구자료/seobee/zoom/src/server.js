@@ -26,6 +26,7 @@ function publicRooms() {
             publicRooms.push(key);
         }
     });
+    return publicRooms;
 }
 
 wsServer.on("connection", (socket) => {
