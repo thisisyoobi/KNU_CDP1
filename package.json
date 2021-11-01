@@ -1,0 +1,26 @@
+{
+  "name": "sfudev",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "localtunnel": "^2.0.2",
+    "pug": "^3.0.2",
+    "react": "^17.0.2",
+    "socket.io": "^4.2.0",
+    "socket.io-client": "^4.2.0",
+    "wrtc": "^0.4.7",
+    "ws": "^8.2.3"
+  }
+}
