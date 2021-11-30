@@ -1,7 +1,7 @@
 # SFU WEBRTC SERVER [Limited In LocalHost]
 ## Team2
-<img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/>
-<img alt="Nodemon" src ="https://img.shields.io/badge/Nodemon-76D04B.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/>
+<img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/><img alt="Nodemon" src ="https://img.shields.io/badge/Nodemon-76D04B.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/>
+
 SFU Server Support 1: N connection 
 
 - 시연을 위해 LocalHost 환경에서만 작동합니다. 
