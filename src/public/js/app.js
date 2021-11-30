@@ -11,12 +11,9 @@ let users=[];
 const pc_config = {
     "iceServers" : [
         {
-            urls: ['stun:59.7.208.141:3478']
-        },
-        {
-            urls: ['turn:59.7.208.141:3478'],
-            username: 'test',
-            credentials: 'test'
+            urls: ['stun:59.7.208.141:3478'
+        ]
+
         }
     ]
 }
@@ -35,7 +32,6 @@ function makeIl(mediastream, socketID) {
     video.playsInline = true;
     video.srcObject = mediastream;
     video.play = true;
-    video.muted = false;
     myFace.srcObject = mediastream;
     // let innerul = document.createElement("ul");
     // let innerdiv = document.createElement("div");

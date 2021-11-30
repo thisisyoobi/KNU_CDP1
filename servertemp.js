@@ -1,27 +1,21 @@
 import { Console } from "console";
 import express from "express";
 
-var fs = require('fs');
-
-let http = require('https');
+let http = require('http');
 let socketio = require('socket.io');
 let cors = require('cors');
 let wrtc = require('wrtc');
-var https_options = {
-    key: fs.readFileSync('private.key'),
-    cert: fs.readFileSync('private.crt')
-};
+
 const app = express();
-const server = http.createServer(https_options,app);
+const server = http.createServer(app);
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
 app.use("/public", express.static(__dirname + "/public"));
 app.get("/", (req, res) => res.render("home"));
-app.get("/admin",(req, res) => res.render("admin"));
 
 app.use(cors());
-const io = socketio(server);
+
 let receiverPCs = {};
 let senderPCs = [];
 let users = {};
@@ -34,7 +28,7 @@ const pc_config = {
         }
     ]
 }
-server.listen(3000, ()=> {console.log('server listen on 3000')});
+
 const isIncluded = (array, id) => {
     let len = array.length;
     for (let i = 0; i < len; i++){
@@ -42,8 +36,6 @@ const isIncluded = (array, id) => {
     }
     return false;
 }
-
-
 
 const createReceiverPeerConnection = (socketID, socket, roomID) => {
     let pc = new wrtc.RTCPeerConnection(pc_config);
@@ -126,7 +118,7 @@ const deleteUser = (socketID, roomID) => {
     let roomUsers = users[roomID];
     if (!roomUsers) return ;
     roomUsers = roomUsers.filter(user => user.id !== socketID);
-    users[roomID] = roomUsers;
+    users[roomId] = roomUsers;
     if (roomUsers.length === 0){
         delete users[roomID];
     }
@@ -157,7 +149,7 @@ const closeSenderPCs = (socketID) => {
     delete senderPCs[socketID];
 }
 
-
+const io = socketio(server);
 
 io.sockets.on('connection', (socket) =>{
     console.log("SocketConnected : " + socket.id);
@@ -208,9 +200,9 @@ io.sockets.on('connection', (socket) =>{
 
     socket.on('receiverCandidate', async(data) => {
         try {
-            //console.log("Sender ID : " + data.senderSocketID);
-            //console.log(senderPCs);
-            //console.log(senderPCs[data.senderSocketID]);
+            console.log("Sender ID : " + data.senderSocketID);
+            console.log(senderPCs);
+            console.log(senderPCs[data.senderSocketID]);
             const senderPC = senderPCs[data.senderSocketID].filter(sPC => sPC.id === data.receiverSocketID);
             await senderPC[0].pc.addIceCandidate(new wrtc.RTCIceCandidate(data.candidate));
         } catch (error) {
@@ -232,3 +224,4 @@ io.sockets.on('connection', (socket) =>{
     });
 });
 
+server.listen(3000, ()=> {console.log('server listen on 3000')});
