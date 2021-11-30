@@ -1,4 +1,4 @@
-- ажюг ! https:// ©║╪╜ ╩Г©Кгь аж╫й╫ц©Д.
+- Лё╪Л²≤ ! https:// Л≈░Л└° Л┌╛Л ╘М∙╢ Лё╪Л▀╜Л▀°Л ■.
 
 ## How To Install
 ```sh
@@ -6,11 +6,11 @@ npm install
 
 npm run dev
 
-https://localhost:3000/admin ==> ╫╨е╘╦╟ю╩ ╟Ью╞го╢б ©╙гр 
-https://localhost:3000 ===> ╫╨е╘╦╟ю╩ ╟Ью╞╧ч╢б ©╙гр
+https://localhost:3000/admin ==> Л┼╓М│╛К╕╟Л²└ ЙЁ╣Л°═М∙≤К┼■ Л≈╜М∙═ 
+https://localhost:3000 ===> Л┼╓М│╛К╕╟Л²└ ЙЁ╣Л°═К╟⌡К┼■ Л≈╜М∙═
 ```
-<img alt="Python" src ="https://img.shields.io/badge/Python-3776AB.svg?&style=for-the-badge&logo=Python&logoColor=white"/>
+<img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/>
 ## Important
-- https:// х╞╟Ф©║╪╜ ╩Г©Кгь аж╫й╫ц©Д.
-- ╟Ью╞гр ц╒ю╩ цж╪рх╜гоаЖ ╦╩╬фаж╫й╫ц©Д.
-- port 3000╧Ью╩ ╨Я©Жаж╫й╫ц©Д.
+- https:// М≥≤Й╡╫Л≈░Л└° Л┌╛Л ╘М∙╢ Лё╪Л▀╜Л▀°Л ■.
+- ЙЁ╣Л°═М∙═ Л╟╫Л²└ Л╣°Л├▄М≥■М∙≤Л╖─ К╖░Л∙└Лё╪Л▀╜Л▀°Л ■.
+- port 3000К╡┬Л²└ К╧└Л⌡▄Лё╪Л▀╜Л▀°Л ■.
