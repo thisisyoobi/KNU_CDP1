@@ -1,5 +1,8 @@
 # SFU WEBRTC SERVER [Limited In LocalHost]
 ## Team2
+
+윤경록 서경섭 유병일 박상헌
+
 <img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/><img alt="Nodemon" src ="https://img.shields.io/badge/Nodemon-76D04B.svg?&style=for-the-badge&logo=Nodemon&logoColor=white"/>
 
 
