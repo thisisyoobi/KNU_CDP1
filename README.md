@@ -1,6 +1,7 @@
 # SFU WEBRTC SERVER [Limited In LocalHost]
 ## Team2
-<img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/><img alt="Nodemon" src ="https://img.shields.io/badge/Nodemon-76D04B.svg?&style=for-the-badge&logo=Nodemon&logoColor=white"/><img alt="WebRTC" src ="https://img.shields.io/badge/WebRTC-#333333.svg?&style=for-the-badge&logo=WebRTC&logoColor=white"/>
+<img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/><img alt="Nodemon" src ="https://img.shields.io/badge/Nodemon-76D04B.svg?&style=for-the-badge&logo=Nodemon&logoColor=white"/><img alt="WebRTC" src ="https://img.shields.io/badge/WebRTC-#333333.svg?&style=for-the-badge&logo=WebRTC&logoColor=white"/><img alt="Google Chrome" src ="https://img.shields.io/badge/Google Chrome-#4285F4.svg?&style=for-the-badge&logo=Google Chrome&logoColor=white"/>
+
 
 # SFU Server Support 1: N connection 
 
