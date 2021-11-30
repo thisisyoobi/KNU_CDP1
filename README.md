@@ -1,8 +1,8 @@
 # SFU WEBRTC SERVER [Limited In LocalHost]
 ## Team2
-<img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/><img alt="Nodemon" src ="https://img.shields.io/badge/Nodemon-76D04B.svg?&style=for-the-badge&logo=Nodemon&logoColor=white"/><img alt="WebRTC" src ="https://img.shields.io/badge/WebRTC-#333333.svg?&style=for-the-badge&logo=WebRTC&logoColor=white"/>
+<img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white"/><img alt="Nodemon" src ="https://img.shields.io/badge/Nodemon-76D04B.svg?&style=for-the-badge&logo=Nodemon&logoColor=white"/><img alt="WebRTC" src ="https://img.shields.io/badge/webrtc-#333333.svg?&style=for-the-badge&logo=WebRTC&logoColor=white"/>
 
-#SFU Server Support 1: N connection 
+# SFU Server Support 1: N connection 
 
 - 시연을 위해 LocalHost 환경에서만 작동합니다. 
 - 자신의 화면을 공유하여 여러명의 Client에게 스트리밍할 수 있습니다.
